@@ -10,6 +10,9 @@ namespace VarosEpitoProjekt
     {
         static void Main(string[] args)
         {
+            Varos varos = new Varos("Budapest", 2);
+            Console.WriteLine(varos);
+            Console.ReadKey();
         }
     }
 }
