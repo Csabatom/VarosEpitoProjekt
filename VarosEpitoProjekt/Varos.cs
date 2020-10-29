@@ -59,22 +59,26 @@ namespace VarosEpitoProjekt
         public int MaxLakosok { get => hazak*6; }
         public double Alapterulet { get => hazak*110+uzletek*85.5; }
 
-        void uzletetEpit(int db)
+        public bool uzletetEpit(int db)
         {
             if(db <= 0)
             {
-                if(lakosok/20 > uzletek)
-                {
-                    this.uzletek += db;
-                } else
-                {
-                    // MAXÜZLETEK BEÁLLÍTÁSA
-                    int maxUzletek = lakosok/20;
-                    Console.WriteLine("Több üzletet már nem építhet! Üzletek száma: " + maxUzletek + "/" + uzletek);
-                }
+                Console.WriteLine("HIBA! Nem lehet a darab negatív szám!");
+                return false;
             } else
             {
-                Console.WriteLine("HIBA");
+                if (lakosok / 20 > uzletek)
+                {
+                    this.uzletek += db;
+                    return true;
+                }
+                else
+                {
+                    // MAXÜZLETEK BEÁLLÍTÁSA
+                    int maxUzletek = lakosok / 20;
+                    Console.WriteLine("Több üzletet már nem építhet! Üzletek száma: " + maxUzletek + "/" + uzletek);
+                    return false;
+                }
             }
         }
 
